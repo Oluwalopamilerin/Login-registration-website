@@ -35,6 +35,10 @@ header{
   user-select: none;
 }
 
+.menu-icon{
+  display: none;
+}
+
 .navigation>a{
   position: relative;
   color: #fff;
@@ -254,3 +258,53 @@ header{
 .login-register>p>a:hover{
   text-decoration: underline;
 }
+
+
+
+@media(max-width:980px) {
+  header{
+    display: flex;
+    align-items:stretch;
+    justify-content: space-between;
+  }
+  .navigation{
+    display: none;
+  }
+
+  .menu-icon{
+    display: block;
+    font-size: 2.5em;
+    color: #fff;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .nav-links{
+    position: relative;
+  }
+
+  .navigation.menu-active{
+    position:absolute;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    font-size: 1.1em;
+    margin-top: -12px;
+    
+  }
+
+  .navigation>.btn-login-popup{
+    width: 80px;
+    height: 35px;
+  }
+
+  .navigation>a::after{
+    bottom: 2px;
+  }
+
+  #contact{
+    margin-bottom: 8px;
+  }
+}
+
