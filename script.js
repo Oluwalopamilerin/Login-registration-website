@@ -59,3 +59,7 @@ menuIcon.addEventListener("click", () => {
   wrapper.classList.add("btn-active");
   wrapper.classList.add("register-active");
  });
+
+
+ const loginBtn = document.getElementById("login-btn");
+ const registerBtn = document.getElementById("register-btn");

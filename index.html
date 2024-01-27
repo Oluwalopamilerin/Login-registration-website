@@ -45,25 +45,29 @@
 
     <div class="form-box login">
       <h2>Login</h2>
-      <form action="#" >
+      <form>
         <div class="input-box">
           <span class="icon"><ion-icon name="mail"></ion-icon></span>
-          <input type="email" required autocomplete="off">
-          <label for="email">Email</label>
+          <input type="email" id="email-login" name="email-login" autocomplete="off" required>
+          <label for="email-login">Email</label>
+          <span id="email-error" class="invalid-input">Invalid email</span>
         </div>
 
         <div class="input-box">
           <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-          <input type="password" required>
-          <label for="password">Password</label>
+          <input type="password" id="password-login" name="password-login" required>
+          <label for="password-login">Password</label>
+          <span id="password-error" class="invalid-input">Invalid password</span>
         </div>
 
         <div class="remember-forgot">
           
-          <label for=""><input type="checkbox">Remember me</label>
+          <label for="remember-me"><input type="checkbox" id="remember-me" name="remember-me">Remember me</label>
           <a href="">Forgot Password?</a>
         </div>
-        <button type="submit" class="btn">Login</button>
+
+        <button type="submit" class="btn" id="login-btn">Login</button>
+
         <div class="login-register">
           <p>Don't have an account? <a href="#" class="register-link">Register</a></p>
         </div>
@@ -76,28 +80,33 @@
       <form action="#" >
         <div class="input-box">
           <span class="icon"><ion-icon name="person"></ion-icon></span>
-          <input type="username" required autocomplete="off">
+          <input type="username" id="username" name="username" autocomplete="off" required>
           <label for="username">Username</label>
+          <span id="username-error" class="invalid-input">Invalid username</span>
         </div>
 
         <div class="input-box">
           <span class="icon"><ion-icon name="mail"></ion-icon></span>
-          <input type="email" required autocomplete="off">
-          <label for="email">Email</label>
+          <input type="email" id="email-register" name="email-register" autocomplete="off" required>
+          <label for="email-register">Email</label>
+          <span id="email-error" class="invalid-input">Invalid email</span>
         </div>
 
         <div class="input-box">
           <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-          <input type="password" required>
-          <label for="password">Password</label>
+          <input type="password" id="password-register" name="password-register" required>
+          <label for="password-register">Password</label>
+          <span id="password-error" class="invalid-input">Invalid password</span>
         </div>
 
         <div class="remember-forgot">
           
-          <label for=""><input type="checkbox">I agree to the terms & conditions</label>
+          <label for="terms-conditions"><input type="checkbox" id="terms-conditions" name="terms-conditions">I agree to the terms & conditions</label>
           <!-- <a href="">Forgot Password?</a> -->
         </div>
-        <button type="submit" class="btn">Register</button>
+
+        <button type="submit" class="btn" id="register-btn">Register</button>
+        
         <div class="login-register">
           <p>Already have an account? <a href="#" class="login-link">Login</a></p>
         </div>
