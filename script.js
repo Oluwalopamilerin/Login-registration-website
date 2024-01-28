@@ -63,3 +63,19 @@ menuIcon.addEventListener("click", () => {
 
  const loginBtn = document.getElementById("login-btn");
  const registerBtn = document.getElementById("register-btn");
+
+ const loginEmail = document.getElementById("email-login");
+ const loginPassword = document.getElementById("password-login");
+ const username = document.getElementById("username");
+ const registerEmail = document.getElementById("email-register");
+ const registerPassword = document.getElementById("password-register");
+
+ loginBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  console.log(loginEmail.value +" " + loginPassword.value);
+ })
+
+ registerBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  console.log(username.value + " " + registerEmail.value + " " + registerPassword.value);
+ })
