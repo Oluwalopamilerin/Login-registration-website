@@ -277,11 +277,27 @@ header{
   padding: 0 30px 0 5px;
 }
 
+input#email-login,
+input#email-register{
+  text-transform: lowercase;
+}
+
+input#username{
+  text-transform: capitalize;
+}
+
 .invalid-input{
   font-size: 12px;
   color: red;
   display: none;
 }
+
+.display-invalid{
+  display: block;
+  font-size: 12px;
+  color: red;
+}
+
 
 .input-box>.icon{
   position: absolute;
