@@ -70,12 +70,56 @@ menuIcon.addEventListener("click", () => {
  const registerEmail = document.getElementById("email-register");
  const registerPassword = document.getElementById("password-register");
 
- loginBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  console.log(loginEmail.value +" " + loginPassword.value);
- })
+
 
  registerBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  console.log(username.value + " " + registerEmail.value + " " + registerPassword.value);
- })
+  
+
+  // Create an array to hold every user entry in local storage
+  let userRecords = new Array();
+  // Check whether the user entry is available in the array; If available, retrieve the details, else return an empty array
+  userRecords = JSON.parse(localStorage.getItem("users"))? JSON.parse(localStorage.getItem("users")): []
+
+  //Check if the email entry is not already in local storage to avoid duplicate mail entries; else, store the details in the array.
+  if (userRecords.some((v)=>{
+    return v.registerEmail == registerEmail.value
+  })){
+    alert("Duplicate data");
+  }
+  else{
+    userRecords.push({
+      "username":username.value,
+      "registerEmail": registerEmail.value,
+      "registerPassword": registerPassword.value
+    })
+    // Store the new user in local storage.
+    localStorage.setItem("users", JSON.stringify(userRecords))
+  }
+ });
+
+
+  loginBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    
+    let userRecords = new Array();
+    userRecords = JSON.parse(localStorage.getItem("users"))? JSON.parse(localStorage.getItem("users")): [];
+
+    // Check email and password for login
+    if(userRecords.some((v) => {
+      return v.registerEmail == loginEmail.value && v.registerPassword == loginPassword.value
+    })){
+      alert("Login successful!")
+      // Retrieve the current user's details
+      let currentUser = userRecords.filter((v) => {
+       return v.loginEmail == registerEmail.value && v.loginPassword == registerPassword.value
+      })[0];
+
+      //Set the user's details for future use
+      localStorage.setItem("name", currentUser.username);
+      localStorage.setItem("email", currentUser.loginEmail);
+    }
+    else{
+      alert("Login unsuccessful!")
+    }
+   })
