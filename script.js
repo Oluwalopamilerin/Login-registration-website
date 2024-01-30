@@ -41,7 +41,7 @@ btnPopup.addEventListener("click", () => {
 menuIcon.addEventListener("click", () => {
   sideBar.classList.add("active-sidebar");
   wrapper.classList.remove("btn-active")
-  //  navigationLinks.classList.toggle("menu-active")
+  
 });
 
  closeSidebar.addEventListener("click", () => {
@@ -62,95 +62,135 @@ menuIcon.addEventListener("click", () => {
  const invalidUsername = document.getElementById("username-error");
  const invalidEmail = document.getElementById("email-error");
 
+
  
-
- let loginEmail = document.getElementById("email-login");
- let loginPassword = document.getElementById("password-login");
- let username = document.getElementById("username");
- let registerEmail = document.getElementById("email-register");
- let registerPassword = document.getElementById("password-register");
- let termsConditions = document.getElementById("terms-conditions");
-
-
 
  //User input validation using regex
 
  //Username validation
-
- username.addEventListener("input", () =>{
-  const currentUser = username.value;
-  const usernameRegex = /^[a-zA-Z][a-zA-Z0-9_]{2,}$/;
-  const valid = usernameRegex.test(currentUser);
+ let username = document.getElementById("username");
+ let usernameValid = false;
+ function validateUsername() {
+  username.addEventListener("input", () =>{
+    const currentUser = username.value;
+    const usernameRegex = /^[a-zA-Z][a-zA-Z0-9_]{2,}$/;
+    const valid = usernameRegex.test(currentUser);
+    
+    if(valid){
+      invalidUsername.classList.remove("display-invalid");
+      usernameValid = true;
+    } else{
+      invalidUsername.classList.add("display-invalid");
+      usernameValid = false;
+    }
+   });
+ }
+ validateUsername();
   
-  if(valid){
-    invalidUsername.classList.remove("display-invalid");
-  } else{
-    invalidUsername.classList.add("display-invalid");
-  }
-  
- });
-
- 
-  //Registration Password validation
-  registerPassword.addEventListener("input", () =>{
-  const invalidPassword = document.getElementById("password-error-r");
-  const currentPassword = registerPassword.value;
-  const passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Z][a-zA-Z0-9]{7,}$/;
-  const valid = passwordRegex.test(currentPassword);
-  
-  
-  if(valid){
-    invalidPassword.classList.remove("display-invalid");
-  } else{
-    invalidPassword.classList.add("display-invalid");
-  }
- });
-
-  // Login Password Validation
-  loginPassword.addEventListener("input", () =>{
-  const invalidPassword = document.getElementById("password-error-l");
-  const currentPassword = loginPassword.value;
-  const passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Z][a-zA-Z0-9]{7,}$/;
-  const valid = passwordRegex.test(currentPassword);
-  
-  if(valid){
-    invalidPassword.classList.remove("display-invalid");
-  } else{
-    invalidPassword.classList.add("display-invalid");
-  }
-});
-
-  //Registration Email validation
+ //Registration Email validation
+ let registerEmail = document.getElementById("email-register");
+ let regEmailValid = false;
+ function validateRegEmail (){
   registerEmail.addEventListener("input", ()=>{
     const invalidEmail = document.getElementById("email-error-r");
     const currentEmail = registerEmail.value;
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const valid = emailRegex.test(currentEmail);
-
-    if(valid){
-      invalidEmail.classList.remove("display-invalid");
-    }
-    else{
-      invalidEmail.classList.add("display-invalid");
-    }
-  })
   
-  //Login Email validation
-  loginEmail.addEventListener("input", ()=>{
-    const invalidEmail = document.getElementById("email-error-l");
-    const currentEmail = loginEmail.value;
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    const valid = emailRegex.test(currentEmail);
-
     if(valid){
       invalidEmail.classList.remove("display-invalid");
+      regEmailValid = true;
     }
     else{
       invalidEmail.classList.add("display-invalid");
+      regEmailValid = false;
     }
   })
+ }
+ validateRegEmail();
+  
+  //Registration Password validation
+  let registerPassword = document.getElementById("password-register");
+  let regPasswordValid = false;
+  function validateRegPassword () {
+    registerPassword.addEventListener("input", () =>{
+      const invalidPassword = document.getElementById("password-error-r");
+      const currentPassword = registerPassword.value;
+      const passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Z][a-zA-Z0-9]{7,}$/;
+      const valid = passwordRegex.test(currentPassword);
+      
+      if(valid){
+        invalidPassword.classList.remove("display-invalid");
+        regPasswordValid = true;
+      } else{
+        invalidPassword.classList.add("display-invalid");
+        regPasswordValid = false;
+      }
+     });
+  }
+  validateRegPassword();
+  
+  
+  
+  
+  // //Login Email validation
+  // let loginEmail = document.getElementById("email-login");
+  // let loginEmailValid = false;
+  // function validateLoginEmail () {
+  //   loginEmail.addEventListener("input", ()=>{
+  //     const invalidEmail = document.getElementById("email-error-l");
+  //     const currentEmail = loginEmail.value;
+  //     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  //     const valid = emailRegex.test(currentEmail);
+  
+  //     if(valid){
+  //       invalidEmail.classList.remove("display-invalid");
+  //       loginEmailValid = true;
+  //     }
+  //     else{
+  //       invalidEmail.classList.add("display-invalid");
+  //       loginEmailValid = false;
+  //     }
+  //   })
+  // }
+  // validateLoginEmail()
+  
 
+  // // Login Password Validation
+  // let loginPassword = document.getElementById("password-login");
+  // let loginPasswordValid = false;
+  // function validateLoginPassword() {
+  //   loginPassword.addEventListener("input", () =>{
+  //     const invalidPassword = document.getElementById("password-error-l");
+  //     const currentPassword = loginPassword.value;
+  //     const passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Z][a-zA-Z0-9]{7,}$/;
+  //     const valid = passwordRegex.test(currentPassword);
+      
+  //     if(valid){
+  //       invalidPassword.classList.remove("display-invalid");
+  //       loginPasswordValid = true;
+  //     } else{
+  //       invalidPassword.classList.add("display-invalid");
+  //       loginPasswordValid = false;
+  //     }
+  //   });
+  // }
+  // validateLoginPassword();
+  
 
+  // Validate terms and conditions checkbox
+  let termsConditions = document.getElementById("terms-conditions");
+  let checked = false;
+  termsConditions.addEventListener("input", () => {
+    if(termsConditions){
+      checked = true;
+      termsConditions.classList.remove("unticked");
+    }
+    else{
+      checked = false;
+      }
+    })
+  
 
 
  const loginBtn = document.getElementById("login-btn");
@@ -161,7 +201,20 @@ menuIcon.addEventListener("click", () => {
 //Activate the register button
  registerBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  
+
+  console.log(usernameValid);
+  console.log(regEmailValid);
+  console.log(regPasswordValid);
+  console.log(checked)
+
+
+  if(!usernameValid || !regPasswordValid || !regEmailValid ||!checked){
+    alert("One or more of your inputs are incorrect!");
+    if (!checked){
+      termsConditions.classList.add("unticked");
+    }
+    return
+  }
   // Create an array to hold every user entry in local storage
   let userRecords = new Array();
   // Check whether the user entry is available in the array; If available, retrieve the details, else return an empty array
@@ -184,7 +237,8 @@ menuIcon.addEventListener("click", () => {
   }
    username.value = "";
    registerEmail.value = "";
-  registerPassword.value = "";
+   registerPassword.value = "";
+   termsConditions.checked = false;
  });
 
  //Activate the login button

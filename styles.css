@@ -324,6 +324,10 @@ input#username{
   margin-right: 3px;
 }
 
+#terms-conditions.unticked{
+  outline: 3px solid red;
+}
+
 .remember-forgot a{
   color: #162938;
   text-decoration: none;
