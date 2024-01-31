@@ -293,8 +293,8 @@ input#username{
 }
 
 .display-invalid{
-  display: block;
-  font-size: 12px;
+  display: flex;
+  font-size: 10px;
   color: red;
 }
 
@@ -312,7 +312,7 @@ input#username{
   font-size: .9em;
   color: #162938;
   font-weight: 500;
-  margin: -10px 0 15px;
+  margin: 10px 0 15px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

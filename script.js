@@ -207,7 +207,9 @@ menuIcon.addEventListener("click", () => {
   console.log(regPasswordValid);
   console.log(checked)
 
-
+  if (username.value == ""){
+    alert("Username cannot be empty");
+  }
   if(!usernameValid || !regPasswordValid || !regEmailValid ||!checked){
     alert("One or more of your inputs are incorrect!");
     if (!checked){
