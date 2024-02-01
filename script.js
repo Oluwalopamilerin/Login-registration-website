@@ -133,31 +133,31 @@ menuIcon.addEventListener("click", () => {
   
   
   
-  // //Login Email validation
-  // let loginEmail = document.getElementById("email-login");
-  // let loginEmailValid = false;
-  // function validateLoginEmail () {
-  //   loginEmail.addEventListener("input", ()=>{
-  //     const invalidEmail = document.getElementById("email-error-l");
-  //     const currentEmail = loginEmail.value;
-  //     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  //     const valid = emailRegex.test(currentEmail);
+  //Login Email validation
+  let loginEmail = document.getElementById("email-login");
+  let loginEmailValid = false;
+  function validateLoginEmail () {
+    loginEmail.addEventListener("input", ()=>{
+      const invalidEmail = document.getElementById("email-error-l");
+      const currentEmail = loginEmail.value;
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      const valid = emailRegex.test(currentEmail);
   
-  //     if(valid){
-  //       invalidEmail.classList.remove("display-invalid");
-  //       loginEmailValid = true;
-  //     }
-  //     else{
-  //       invalidEmail.classList.add("display-invalid");
-  //       loginEmailValid = false;
-  //     }
-  //   })
-  // }
-  // validateLoginEmail()
+      if(valid){
+        invalidEmail.classList.remove("display-invalid");
+        loginEmailValid = true;
+      }
+      else{
+        invalidEmail.classList.add("display-invalid");
+        loginEmailValid = false;
+      }
+    })
+  }
+  validateLoginEmail()
   
 
   // // Login Password Validation
-  // let loginPassword = document.getElementById("password-login");
+   let loginPassword = document.getElementById("password-login");
   // let loginPasswordValid = false;
   // function validateLoginPassword() {
   //   loginPassword.addEventListener("input", () =>{
@@ -236,6 +236,7 @@ menuIcon.addEventListener("click", () => {
     })
     // Store the new user in local storage.
     localStorage.setItem("users", JSON.stringify(userRecords))
+    alert("Registration successful!")
   }
    username.value = "";
    registerEmail.value = "";
@@ -246,7 +247,10 @@ menuIcon.addEventListener("click", () => {
  //Activate the login button
   loginBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    
+    if(loginEmail.value === ""){
+      alert("Username cannot be empty");
+      return
+    }
     let userRecords = new Array();
     userRecords = JSON.parse(localStorage.getItem("users"))? JSON.parse(localStorage.getItem("users")): [];
 
@@ -261,8 +265,8 @@ menuIcon.addEventListener("click", () => {
       })[0];
 
       //Set the user's details for future use
-      localStorage.setItem("name", currentUser.username);
-      localStorage.setItem("email", currentUser.loginEmail);
+      // localStorage.setItem("name", currentUser.username);
+      // localStorage.setItem("email", currentUser.loginEmail);
     }
     else{
       alert("User does not exist!")
