@@ -13,6 +13,9 @@ const registerNav = document.querySelector(".btn-register-popup");
 const registerNavBig = document.querySelector(".btn-register-popup-big");
 const loginForm = document.querySelector(".form-box.login");
 
+window.onload = () => {
+  wrapper.classList.add("btn-active");
+};
 
 btnPopup.addEventListener("click", () => {
    wrapper.classList.add("btn-active");
